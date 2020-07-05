@@ -1,4 +1,5 @@
 import React from "react";
+import quotes from "./quotes.json";
 //import { Counter } from "./features/counter/Counter";
 import "./App.css";
 
@@ -12,7 +13,7 @@ class App extends React.Component {
     return (
       <div>
         <div id="text">
-          <h1>Qoute comes here</h1>
+          <h3>{quotes.quotes[0]["quote"]}</h3>
         </div>
       </div>
     );
