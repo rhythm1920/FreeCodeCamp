@@ -30,16 +30,16 @@ class Author extends React.Component {
     );
   }
 }
-class Tweet extends React.Componen {
+class Tweet extends React.Component {
   constructor(props) {
     super(props);
-    state = {};
+    this.state = {};
   }
   render() {
     return (
       <div>
         <a id="tweet-quote">
-          <button></button>
+          <button>Tweet</button>
         </a>
       </div>
     );
@@ -49,7 +49,9 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
+    this.handleClick = this.handleClick.bind(this);
   }
+  handleClick(state) {}
 
   render() {
     return (
@@ -57,6 +59,9 @@ class App extends React.Component {
         <Text />
         <Author />
         <Tweet />
+        <button id="new-quote" onClick={this.handleClick}>
+          New Quote
+        </button>
       </div>
     );
   }
