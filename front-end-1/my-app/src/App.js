@@ -1,18 +1,18 @@
 import React from "react";
 import quotes from "./quotes.json";
+import { random, floor } from "mathjs";
 //import { Counter } from "./features/counter/Counter";
 import "./App.css";
 
 class Text extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {};
   }
   render() {
     return (
       <div id="text">
-        <h3>{quotes.quotes[0]["quote"]}</h3>
+        <h3>{quotes.quotes[this.props.index]["quote"]}</h3>
       </div>
     );
   }
@@ -25,7 +25,7 @@ class Author extends React.Component {
   render() {
     return (
       <div>
-        <h3>{quotes.quotes[0]["author"]}</h3>
+        <h3>{quotes.quotes[this.props.index]["author"]}</h3>
       </div>
     );
   }
@@ -45,19 +45,28 @@ class Tweet extends React.Component {
     );
   }
 }
+let num = floor(random(0, quotes.quotes.length));
+console.log(num);
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      randomNum: floor(random(0, quotes.quotes.length)),
+    };
     this.handleClick = this.handleClick.bind(this);
   }
-  handleClick(state) {}
+  handleClick(state) {
+    this.setState({
+      randomNum: floor(random(0, quotes.quotes.length)),
+    });
+  }
 
   render() {
+    console.log(this.state.randomNum);
     return (
       <div>
-        <Text />
-        <Author />
+        <Text index={this.state.randomNum} />
+        <Author index={this.state.randomNum} />
         <Tweet />
         <button id="new-quote" onClick={this.handleClick}>
           New Quote
