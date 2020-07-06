@@ -17,6 +17,19 @@ class Text extends React.Component {
     );
   }
 }
+class Author extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+  render() {
+    return (
+      <div>
+        <h3>{quotes.quotes[0]["author"]}</h3>
+      </div>
+    );
+  }
+}
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -27,6 +40,7 @@ class App extends React.Component {
     return (
       <div>
         <Text />
+        <Author />
       </div>
     );
   }
