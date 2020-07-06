@@ -30,6 +30,21 @@ class Author extends React.Component {
     );
   }
 }
+class Tweet extends React.Componen {
+  constructor(props) {
+    super(props);
+    state = {};
+  }
+  render() {
+    return (
+      <div>
+        <a id="tweet-quote">
+          <button></button>
+        </a>
+      </div>
+    );
+  }
+}
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -41,6 +56,7 @@ class App extends React.Component {
       <div>
         <Text />
         <Author />
+        <Tweet />
       </div>
     );
   }
