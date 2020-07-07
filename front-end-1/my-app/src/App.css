@@ -31,9 +31,20 @@
     transform: translateY(0);
   }
   50% {
-    transform: translateY(10px)
+    transform: translateY(10px);
   }
   100% {
-    transform: translateY(0px)
+    transform: translateY(0px);
   }
+}
+#author {
+  color: grey;
+}
+#twiter {
+  color: white;
+  font-size: 36px;
+}
+#quote-box {
+  background-color: black;
+  color: white;
 }

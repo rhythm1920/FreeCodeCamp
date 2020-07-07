@@ -11,7 +11,7 @@ class Text extends React.Component {
   }
   render() {
     return (
-      <div id="text">
+      <div id="text" className="text-center">
         <h3>{quotes.quotes[this.props.index]["quote"]}</h3>
       </div>
     );
@@ -24,8 +24,8 @@ class Author extends React.Component {
   }
   render() {
     return (
-      <div>
-        <h3>{quotes.quotes[this.props.index]["author"]}</h3>
+      <div id="author" className="text-center">
+        <h3>-{quotes.quotes[this.props.index]["author"]}</h3>
       </div>
     );
   }
@@ -38,9 +38,12 @@ class Tweet extends React.Component {
   render() {
     return (
       <div>
-        <a id="tweet-quote">
-          <button>Tweet</button>
-        </a>
+        <button className="btn btn-block btn-success">
+          {" "}
+          <a id="tweet-quote" href="twitter.com/intent/tweet">
+            Tweet
+          </a>
+        </button>
       </div>
     );
   }
@@ -68,7 +71,11 @@ class App extends React.Component {
         <Text index={this.state.randomNum} />
         <Author index={this.state.randomNum} />
         <Tweet />
-        <button id="new-quote" onClick={this.handleClick}>
+        <button
+          id="new-quote"
+          onClick={this.handleClick}
+          className="btn btn-block btn-info"
+        >
           New Quote
         </button>
       </div>
