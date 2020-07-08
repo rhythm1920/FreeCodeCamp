@@ -1,9 +1,8 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
-
+import { marked } from "marked";
 function App() {
-  return <div></div>;
+  return <div>{marked(<h1>Hello</h1>)}</div>;
 }
 
 export default App;
