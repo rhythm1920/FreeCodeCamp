@@ -1,27 +1,28 @@
 import React from "react";
 import "./App.css";
-import marked from "marked";
+let marked = require("marked");
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       input: `
-      # H1 \n
-      ## H2 \n
-      [I'm an inline-style link](https://www.google.com) Inline \`code\` has \`back-ticks around\` it 
-      \`\`\`javascript
-      var s = "JavaScript syntax highlighting";
-      alert(s);
-      \`\`\` 
-      1. First ordered list item 
-      2. Another item 
-      ⋅⋅* Unordered sub-list. 
-      1. Actual numbers don\'t matter, just that it\'s a number 
-      ⋅⋅1. Ordered sub-list 
-      4. And another item. 
-      > Blockquotes are very handy in email to emulate reply text 
-      ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1" 
-      **asterisks**)`,
+# React Markdown Previewer!\n
+## This is a sub-heading..
+Or... wait for it... **_both!_**
+And feel free to go crazy ~~crossing stuff out~~
+There's also [links](https://ashusingh.me), and
+>   Block Quotes!\n
+this is \`code\`
+\`\`\`     
+<html>
+  <div>
+  </div>
+</html>
+\`\`\`
+1. First ordered list item
+2. Another item
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")   
+`,
       output: "",
     };
     this.handleClick = this.handleClick.bind(this);
@@ -34,8 +35,17 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <input type="textarea" onChange={this.handleClick}></input>
-        <div>{marked(this.state.input)}</div>
+        <div>
+          <textarea
+            id="editor"
+            onChange={this.handleClick}
+            value={this.state.input}
+          ></textarea>
+        </div>
+        <div
+          id="preview"
+          dangerouslySetInnerHTML={{ __html: marked(this.state.input) }}
+        ></div>
       </div>
     );
   }
