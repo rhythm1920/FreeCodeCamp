@@ -5,7 +5,11 @@ class App extends React.Component {
     super(props);
   }
   render() {
-    return <div></div>;
+    return (
+      <div>
+        <div id="display"></div>
+      </div>
+    );
   }
 }
 
