@@ -1,0 +1,15 @@
+.drum-pad {
+  color: blueviolet;
+  background-color: yellowgreen;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  border: 5px;
+  border-color: blueviolet;
+  margin: 5px;
+  margin-top: 50px;
+}
+.drum-pad:hover {
+  height: 110px;
+  width: 110px;
+}
