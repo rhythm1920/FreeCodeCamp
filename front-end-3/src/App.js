@@ -13,6 +13,42 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
+    this.handleKeyPress = this.handleKeyPress.bind(this);
+  }
+  handleKeyPress(event) {
+    if (event.keyCode === 81) {
+      document.getElementById("Q").play();
+    }
+    if (event.keyCode === 87) {
+      document.getElementById("W").play();
+    }
+    if (event.keyCode === 69) {
+      document.getElementById("E").play();
+    }
+    if (event.keyCode === 65) {
+      document.getElementById("A").play();
+    }
+    if (event.keyCode === 83) {
+      document.getElementById("S").play();
+    }
+    if (event.keyCode === 68) {
+      document.getElementById("D").play();
+    }
+    if (event.keyCode === 90) {
+      document.getElementById("Z").play();
+    }
+    if (event.keyCode === 88) {
+      document.getElementById("X").play();
+    }
+    if (event.keyCode === 67) {
+      document.getElementById("C").play();
+    }
+  }
+  componentDidMount() {
+    document.addEventListener("keydown", this.handleKeyPress);
+  }
+  componentWillUnmount() {
+    document.removeEventListener("keydown", this.handleKeyPress);
   }
   render() {
     return (
