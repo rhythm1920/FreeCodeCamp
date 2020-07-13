@@ -12,36 +12,63 @@ import sound9 from "./audio/audio9.wav";
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = { display: "" };
     this.handleKeyPress = this.handleKeyPress.bind(this);
   }
   handleKeyPress(event) {
     if (event.keyCode === 81) {
       document.getElementById("Q").play();
+      this.setState({
+        display: "Q",
+      });
     }
     if (event.keyCode === 87) {
       document.getElementById("W").play();
+      this.setState({
+        display: "W",
+      });
     }
     if (event.keyCode === 69) {
       document.getElementById("E").play();
+      this.setState({
+        display: "E",
+      });
     }
     if (event.keyCode === 65) {
       document.getElementById("A").play();
+      this.setState({
+        display: "A",
+      });
     }
     if (event.keyCode === 83) {
       document.getElementById("S").play();
+      this.setState({
+        display: "S",
+      });
     }
     if (event.keyCode === 68) {
       document.getElementById("D").play();
+      this.setState({
+        display: "D",
+      });
     }
     if (event.keyCode === 90) {
       document.getElementById("Z").play();
+      this.setState({
+        display: "Z",
+      });
     }
     if (event.keyCode === 88) {
       document.getElementById("X").play();
+      this.setState({
+        display: "X",
+      });
     }
     if (event.keyCode === 67) {
       document.getElementById("C").play();
+      this.setState({
+        display: "C",
+      });
     }
   }
   componentDidMount() {
@@ -53,7 +80,9 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <div id="display"></div>
+        <div id="display">
+          <h1>{this.state.display}</h1>
+        </div>
         <div className="container">
           <div className="row">
             <div className="col-xs-4">
@@ -62,6 +91,9 @@ class App extends React.Component {
                 id="Q-pad"
                 onClick={() => {
                   document.getElementById("Q").play();
+                  this.setState({
+                    display: "Q",
+                  });
                 }}
               >
                 <h1>Q</h1>
@@ -76,6 +108,9 @@ class App extends React.Component {
                 id="W-pad"
                 onClick={() => {
                   document.getElementById("W").play();
+                  this.setState({
+                    display: "W",
+                  });
                 }}
               >
                 <h1>W</h1>
@@ -90,6 +125,9 @@ class App extends React.Component {
                 id="E-pad"
                 onClick={() => {
                   document.getElementById("E").play();
+                  this.setState({
+                    display: "E",
+                  });
                 }}
               >
                 <h1>E</h1>
@@ -106,6 +144,9 @@ class App extends React.Component {
                 id="A-pad"
                 onClick={() => {
                   document.getElementById("A").play();
+                  this.setState({
+                    display: "A",
+                  });
                 }}
               >
                 <h1>A</h1>
@@ -120,6 +161,9 @@ class App extends React.Component {
                 id="S-pad"
                 onClick={() => {
                   document.getElementById("S").play();
+                  this.setState({
+                    display: "S",
+                  });
                 }}
               >
                 <h1>S</h1>
@@ -134,6 +178,9 @@ class App extends React.Component {
                 id="D-pad"
                 onClick={() => {
                   document.getElementById("D").play();
+                  this.setState({
+                    display: "D",
+                  });
                 }}
               >
                 <h1>D</h1>
@@ -150,6 +197,9 @@ class App extends React.Component {
                 id="Z-pad"
                 onClick={() => {
                   document.getElementById("Z").play();
+                  this.setState({
+                    display: "Z",
+                  });
                 }}
               >
                 <h1>Z</h1>
@@ -164,6 +214,9 @@ class App extends React.Component {
                 id="X-pad"
                 onClick={() => {
                   document.getElementById("X").play();
+                  this.setState({
+                    display: "X",
+                  });
                 }}
               >
                 <h1>X</h1>
@@ -178,6 +231,9 @@ class App extends React.Component {
                 id="C-pad"
                 onClick={() => {
                   document.getElementById("C").play();
+                  this.setState({
+                    display: "C",
+                  });
                 }}
               >
                 <h1>C</h1>
