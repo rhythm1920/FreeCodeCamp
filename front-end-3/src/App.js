@@ -20,24 +20,42 @@ class App extends React.Component {
         <div id="display"></div>
         <div className="container">
           <div className="row">
-            <div className="col-sm-4">
-              <button className="drum-pad" id="Q-pad">
+            <div className="col-xs-4">
+              <button
+                className="drum-pad"
+                id="Q-pad"
+                onClick={() => {
+                  document.getElementById("Q").play();
+                }}
+              >
                 <h1>Q</h1>
                 <audio src={sound1} type="audio/wav" className="clip" id="Q">
                   Your browser does not support this format
                 </audio>
               </button>
             </div>
-            <div className="col-sm-4">
-              <button className="drum-pad" id="W-pad">
+            <div className="col-xs-4">
+              <button
+                className="drum-pad"
+                id="W-pad"
+                onClick={() => {
+                  document.getElementById("W").play();
+                }}
+              >
                 <h1>W</h1>
                 <audio src={sound2} type="audio/wav" className="clip" id="W">
                   Your browser does not support this format
                 </audio>
               </button>
             </div>
-            <div className="col-sm-4">
-              <button className="drum-pad" id="E-pad">
+            <div className="col-xs-4">
+              <button
+                className="drum-pad"
+                id="E-pad"
+                onClick={() => {
+                  document.getElementById("E").play();
+                }}
+              >
                 <h1>E</h1>
                 <audio src={sound3} type="audio/wav" className="clip" id="E">
                   Your browser does not support this format
@@ -47,7 +65,13 @@ class App extends React.Component {
           </div>
           <div className="row">
             <div className="col-xs-4">
-              <button className="drum-pad" id="A-pad">
+              <button
+                className="drum-pad"
+                id="A-pad"
+                onClick={() => {
+                  document.getElementById("A").play();
+                }}
+              >
                 <h1>A</h1>
                 <audio src={sound4} type="audio/wav" className="clip" id="A">
                   Your browser does not support this format
@@ -55,7 +79,13 @@ class App extends React.Component {
               </button>
             </div>
             <div className="col-xs-4">
-              <button className="drum-pad" id="S-pad">
+              <button
+                className="drum-pad"
+                id="S-pad"
+                onClick={() => {
+                  document.getElementById("S").play();
+                }}
+              >
                 <h1>S</h1>
                 <audio src={sound5} type="audio/wav" className="clip" id="S">
                   Your browser does not support this format
@@ -63,7 +93,13 @@ class App extends React.Component {
               </button>
             </div>
             <div className="col-xs-4">
-              <button className="drum-pad" id="D-pad">
+              <button
+                className="drum-pad"
+                id="D-pad"
+                onClick={() => {
+                  document.getElementById("D").play();
+                }}
+              >
                 <h1>D</h1>
                 <audio src={sound6} type="audio/wav" className="clip" id="D">
                   Your browser does not support this format
@@ -73,7 +109,13 @@ class App extends React.Component {
           </div>
           <div className="row">
             <div className="col-xs-4">
-              <button className="drum-pad" id="Z-pad">
+              <button
+                className="drum-pad"
+                id="Z-pad"
+                onClick={() => {
+                  document.getElementById("Z").play();
+                }}
+              >
                 <h1>Z</h1>
                 <audio src={sound7} type="audio/wav" className="clip" id="Z">
                   Your browser does not support this format
@@ -81,7 +123,13 @@ class App extends React.Component {
               </button>
             </div>
             <div className="col-xs-4">
-              <button className="drum-pad" id="X-pad">
+              <button
+                className="drum-pad"
+                id="X-pad"
+                onClick={() => {
+                  document.getElementById("X").play();
+                }}
+              >
                 <h1>X</h1>
                 <audio src={sound8} type="audio/wav" className="clip" id="X">
                   Your browser does not support this format
@@ -89,7 +137,13 @@ class App extends React.Component {
               </button>
             </div>
             <div className="col-xs-4">
-              <button className="drum-pad" id="C-pad">
+              <button
+                className="drum-pad"
+                id="C-pad"
+                onClick={() => {
+                  document.getElementById("C").play();
+                }}
+              >
                 <h1>C</h1>
                 <audio src={sound9} type="audio/wav" className="clip" id="C">
                   Your browser does not support this format
