@@ -34,7 +34,9 @@
   height: 50px;
   width: 50px;
 }
-
+#display {
+  border: 2px solid grey;
+}
 @keyframes App-logo-float {
   0% {
     transform: translateY(0);

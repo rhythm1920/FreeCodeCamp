@@ -1,17 +1,19 @@
 import React from "react";
 import "./App.css";
+import { handleNum } from "./store";
+import { connect } from "react-redux";
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = { input: "" };
   }
   render() {
     return (
       <div>
         <div className="fluid-container well" id="container">
           <div className="row">
-            <div className="col-xs-9" id="display">
-              <label></label>
+            <div className="col-xs-9 text-right" id="display">
+              <h4>{this.props.display}</h4>
             </div>
             <div className="col-xs-3">
               <button id="clear" className="btn btn-default">
@@ -24,17 +26,35 @@ class App extends React.Component {
           }
           <div className="row">
             <div className="col-xs-3 ">
-              <button id="one" className="btn btn-default">
+              <button
+                id="one"
+                className="btn btn-default"
+                onClick={() => {
+                  this.props.submitNum("1");
+                }}
+              >
                 1
               </button>
             </div>
             <div className="col-xs-3 ">
-              <button id="two" className="btn btn-default">
+              <button
+                id="two"
+                className="btn btn-default"
+                onClick={() => {
+                  this.props.submitNum("2");
+                }}
+              >
                 2
               </button>
             </div>
             <div className="col-xs-3">
-              <buttom id="three" className="btn btn-default">
+              <buttom
+                id="three"
+                className="btn btn-default"
+                onClick={() => {
+                  this.props.submitNum("3");
+                }}
+              >
                 3
               </buttom>
             </div>
@@ -49,17 +69,35 @@ class App extends React.Component {
           }
           <div className="row">
             <div className="col-xs-3">
-              <button id="four" className="btn btn-default">
+              <button
+                id="four"
+                className="btn btn-default"
+                onClick={() => {
+                  this.props.submitNum("4");
+                }}
+              >
                 4
               </button>
             </div>
             <div className="col-xs-3">
-              <button id="five" className="btn btn-default">
+              <button
+                id="five"
+                className="btn btn-default"
+                onClick={() => {
+                  this.props.submitNum("5");
+                }}
+              >
                 5
               </button>
             </div>
             <div className="col-xs-3">
-              <buttom id="six" className="btn btn-default">
+              <buttom
+                id="six"
+                className="btn btn-default"
+                onClick={() => {
+                  this.props.submitNum("6");
+                }}
+              >
                 6
               </buttom>
             </div>
@@ -74,17 +112,35 @@ class App extends React.Component {
           }
           <div className="row">
             <div className="col-xs-3">
-              <button id="seven" className="btn btn-default">
+              <button
+                id="seven"
+                className="btn btn-default"
+                onClick={() => {
+                  this.props.submitNum("7");
+                }}
+              >
                 7
               </button>
             </div>
             <div className="col-xs-3">
-              <button id="eight" className="btn btn-default">
+              <button
+                id="eight"
+                className="btn btn-default"
+                onClick={() => {
+                  this.props.submitNum("8");
+                }}
+              >
                 8
               </button>
             </div>
             <div className="col-xs-3">
-              <buttom id="nine" className="btn btn-default">
+              <buttom
+                id="nine"
+                className="btn btn-default"
+                onClick={() => {
+                  this.props.submitNum("9");
+                }}
+              >
                 9
               </buttom>
             </div>
@@ -124,4 +180,11 @@ class App extends React.Component {
     );
   }
 }
-export default App;
+function mapStateToProps(state) {
+  return { display: state.display };
+}
+function mapDispatchToProps(dispatch) {
+  return { submitNum: (num) => dispatch(handleNum(num)) };
+}
+let ConnectedComponent = connect(mapStateToProps, mapDispatchToProps)(App);
+export default ConnectedComponent;
