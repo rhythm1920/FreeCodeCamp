@@ -39,9 +39,9 @@ function row3(props) {
         <button
           id="multiply"
           className="btn btn-default"
-          onClick={() => props.submitOprt("x")}
+          onClick={() => props.submitOprt("*")}
         >
-          x
+          *
         </button>
       </div>
     </div>
