@@ -46,6 +46,7 @@ const reducer = (state = defaultState, action) => {
         displayStr = state.display.toString();
         displayStr = [...displayStr.split("")];
         displayStr.push(action.oprt);
+        console.log("first operator");
         return Object.assign({}, state, {
           display: displayStr.join(""),
           isDecimalUsed: false,
@@ -55,6 +56,7 @@ const reducer = (state = defaultState, action) => {
         displayStr = state.display.toString();
         displayStr = [...displayStr.split("")];
         displayStr.splice(displayStr.length - 1, 1, action.oprt);
+        console.log("not minus  ");
         return Object.assign({}, state, {
           display: displayStr.join(""),
           isDecimalUsed: false,
@@ -70,6 +72,7 @@ const reducer = (state = defaultState, action) => {
           isOperatorUsed: true,
         });
       } else {
+        console.log("operator not accepted at first place");
         return state;
       }
 
@@ -78,6 +81,7 @@ const reducer = (state = defaultState, action) => {
       return defaultState;
     case DCML:
       if (state.isDecimalUsed === false) {
+        console.log("decimal");
         displayStr = state.display.toString();
         displayStr = [...displayStr.split("")];
         displayStr.push(".");
@@ -86,6 +90,8 @@ const reducer = (state = defaultState, action) => {
           isDecimalUsed: true,
         });
       } else {
+        console.log("not decimal");
+        console.log(state);
         return state;
       }
 
@@ -95,8 +101,12 @@ const reducer = (state = defaultState, action) => {
       displayStr = [...displayStr.split("")];
       for (let x = 0; x <= displayStr.length; x++) {
         if (
-          displayStr[x] === ("+" || "/" || "*") &&
-          displayStr[x - 1] === ("+" || "/" || "*")
+          (displayStr[x] === "+" ||
+            displayStr[x] === "/" ||
+            displayStr[x] === "*") &&
+          (displayStr[x - 1] === "+" ||
+            displayStr[x - 1] === "/" ||
+            displayStr[x - 1] === "*")
         ) {
           displayStr.splice(x - 1, 1);
         }
