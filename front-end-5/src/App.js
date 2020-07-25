@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import beepSound from "./Computer-beep-beeping-2-www.FesliyanStudios.com.mp3";
 import "./App.css";
 import { Grid, Button, Card, CardContent } from "@material-ui/core";
 import Timer from "easytimer.js";
@@ -9,6 +10,7 @@ function App() {
   const [isThisSession, setIsThisSession] = useState(true); //boolean for deciding between session and break
   const [timeLeft, setTimeLeft] = useState(sessionLength * 60); // time left in seconds
   let timerHandler = () => {
+    document.getElementById("beep").play();
     timer.stop(); //for preventing starting from default value(due to multiple callback)
     setIsThisSession(!isThisSession);
     if (isThisSession) {
@@ -35,6 +37,11 @@ function App() {
         timer.getTimeValues().minutes * 60 + timer.getTimeValues().seconds //converting time from mm:ss to seconds
       );
     });
+    return timer.removeEventListener("secondsUpdated", function () {
+      setTimeLeft(
+        timer.getTimeValues().minutes * 60 + timer.getTimeValues().seconds //converting time from mm:ss to seconds
+      );
+    });
   });
   useEffect(() => {
     timer.addEventListener("targetAchieved", () => timerHandler());
@@ -45,13 +52,12 @@ function App() {
 
   return (
     <div id="container">
+      <audio id="beep" type="audio/mp3" src={beepSound}></audio>
       <div style={{ fontSize: "100px" }}>
-        {Math.floor(timeLeft / 60) < 10 && 0} {Math.floor(timeLeft / 60)}:
-        {
-          timeLeft - Math.floor(timeLeft / 60) * 60 < 10 &&
-            0 /*for displaying time in mm:ss format */
-        }
-        {timeLeft - Math.floor(timeLeft / 60) * 60}
+        {Math.floor(timeLeft / 60) < 10 && "0"}
+        {Math.floor(timeLeft / 60).toString()}:
+        {timeLeft - Math.floor(timeLeft / 60) * 60 < 10 && "0"}
+        {(timeLeft - Math.floor(timeLeft / 60) * 60).toString()}
       </div>
       <Grid container spacing={0} justify="center" alignItems="center">
         {/*outer grid*/}
@@ -174,11 +180,11 @@ function App() {
           <Card variant="outlined">
             <CardContent>
               <div id="time-left">
-                {Math.floor(timeLeft / 60) < 10 && 0}
+                {Math.floor(timeLeft / 60) < 10 && "0"}
                 {/*for displaying time in mm:ss format */}
-                {Math.floor(timeLeft / 60)}:
-                {timeLeft - Math.floor(timeLeft / 60) * 60 < 10 && 0}
-                {timeLeft - Math.floor(timeLeft / 60) * 60}
+                {Math.floor(timeLeft / 60).toString()}:
+                {timeLeft - Math.floor(timeLeft / 60) * 60 < 10 && "0"}
+                {(timeLeft - Math.floor(timeLeft / 60) * 60).toString()}
               </div>
             </CardContent>
           </Card>
@@ -212,6 +218,8 @@ function App() {
             onClick={() => {
               timer.reset();
               timer.pause();
+              document.getElementById("beep").pause();
+              document.getElementById("beep").currentTime = 0;
               setTimeLeft(25 * 60);
               setIsThisSession(true);
               setSessionLength(25);
