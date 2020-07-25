@@ -84,10 +84,16 @@ function App() {
             onClick={() => {
               if (breakLength + 1 > 60) {
                 setBreakLength(60);
+                if (!isThisSession) {
+                  setTimeLeft(60 * 60);
+                }
               } else {
                 setBreakLength((prevBreakLength) => {
                   return prevBreakLength + 1;
                 });
+                if (!isThisSession) {
+                  setTimeLeft((breakLength + 1) * 60);
+                }
               }
             }}
           >
@@ -103,7 +109,13 @@ function App() {
             onClick={() => {
               if (breakLength - 1 <= 0) {
                 setBreakLength(1);
+                if (!isThisSession) {
+                  setTimeLeft(1 * 60);
+                }
               } else {
+                if (!isThisSession) {
+                  setTimeLeft((breakLength - 1) * 60);
+                }
                 setBreakLength((prevBreakLength) => prevBreakLength - 1);
               }
             }}
@@ -158,10 +170,14 @@ function App() {
             onClick={() => {
               if (sessionLength - 1 <= 0) {
                 setSessionLength(1);
-                setTimeLeft(1);
+                if (isThisSession) {
+                  setTimeLeft(1 * 60);
+                }
               } else {
                 setSessionLength(sessionLength - 1);
-                setTimeLeft((sessionLength - 1) * 60);
+                if (isThisSession) {
+                  setTimeLeft((sessionLength - 1) * 60);
+                }
               }
             }}
           >
