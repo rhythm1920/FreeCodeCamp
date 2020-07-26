@@ -61,25 +61,25 @@ function App() {
       </div>
       <Grid container spacing={0} justify="center" alignItems="center">
         {/*outer grid*/}
-        <Grid item xs="6">
+        <Grid item xs={6}>
           <Card variant="outlined">
             <CardContent>
               <div id="break-label">Break Length</div>
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs="2">
+        <Grid item xs={2}>
           <Card variant="outlined">
             <CardContent>
               <div id="break-length">{breakLength}</div>
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs="2">
+        <Grid item xs={2}>
           <Button
             id="break-increment"
             variant="contained"
-            color="Primary"
+            color="primary"
             style={{ width: "100px", height: "60px" }}
             onClick={() => {
               if (breakLength + 1 > 60) {
@@ -94,7 +94,7 @@ function App() {
             +
           </Button>
         </Grid>
-        <Grid item xs="2">
+        <Grid item xs={2}>
           <Button
             id="break-decrement"
             variant="contained"
@@ -112,21 +112,21 @@ function App() {
           </Button>
         </Grid>
 
-        <Grid item xs="6">
+        <Grid item xs={6}>
           <Card variant="outlined">
             <CardContent>
               <div id="session-label">Session Length</div>
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs="2">
+        <Grid item xs={2}>
           <Card variant="outlined">
             <CardContent>
               <div id="session-length">{sessionLength}</div>
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs="2">
+        <Grid item xs={2}>
           <Button
             id="session-increment"
             variant="contained"
@@ -143,7 +143,7 @@ function App() {
             +
           </Button>
         </Grid>
-        <Grid item xs="2">
+        <Grid item xs={2}>
           <Button
             id="session-decrement"
             variant="contained"
@@ -167,14 +167,14 @@ function App() {
           </Button>
         </Grid>
 
-        <Grid item xs="6">
+        <Grid item xs={6}>
           <Card variant="outlined">
             <CardContent>
               <div id="timer-label">{isThisSession ? "Session" : "Break"}</div>
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs="6">
+        <Grid item xs={6}>
           <Card variant="outlined">
             <CardContent>
               <div id="time-left">
@@ -187,7 +187,7 @@ function App() {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs="6">
+        <Grid item xs={6}>
           <Button
             id="start_stop"
             variant="contained"
@@ -208,7 +208,7 @@ function App() {
             {timer.isRunning() ? "Stop" : "Start"}
           </Button>
         </Grid>
-        <Grid item xs="6">
+        <Grid item xs={6}>
           <Button
             id="reset"
             variant="contained"
