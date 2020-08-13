@@ -11,7 +11,7 @@ const defaultState = {
   isDecimalUsed: false,
   isOperatorUsed: false,
 };
-let oprtList = ["+", "*", "/"];
+
 const handleNum = (input) => {
   return { type: NUM, num: input };
 };
