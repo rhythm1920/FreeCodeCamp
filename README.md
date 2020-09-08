@@ -1,3 +1,3 @@
 # FreeCodeCamp
-Repository for my freecodecamp Projects
+Repository for my FreeCodeCamp Front-end Projects.
 
